@@ -1,0 +1,39 @@
+<!-- myapp/templates/order.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Form</title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <label for="academic_level">Academic Level:</label><br>
+        <select id="academic_level" name="academic_level">
+            <option value="undergraduate">Undergraduate</option>
+            <option value="high_school">high_school</option>
+            <option value="masters">masters</option>
+            <option value="phd">phd</option>
+            
+        </select><br>
+        <label for="service_type">Service Type:</label><br>
+        <select id="service_type" name="service_type">
+            <option value="writing">Writing</option>
+            <option value="editing">Editing</option>
+            <option value="proofreading">Proofreading</option>
+        </select><br>
+        <label for="currency">Currency:</label><br>
+        <select id="currency" name="currency">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+        </select><br>
+        <input type="submit" value="Submit">
+    </form>
+    {% if academic_level %}
+        <p>The academic_level is: {{ academic_level }}</p>
+    {% endif %}
+    {% if price %}
+        <p>The price is:{{ currency }} {{ price }}</p>
+    {% endif %}
+</body>
+</html>
